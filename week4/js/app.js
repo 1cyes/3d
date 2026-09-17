@@ -54,3 +54,47 @@ try {
   statusText.textContent = "The 3D view could not start. Keep the whole week4 folder together, reload, and check the browser console. If this device cannot run WebGL, ask your instructor for the supported lab route.";
   console.error("Scene startup:", error);
 }
+export var createScene = function () {
+    // 1. Initialize the scene
+    var scene = new BABYLON.Scene(engine);
+
+    // 2. Add a basic camera and light so you can see your 3D models
+    var camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 5, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, true);
+    var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+
+    // 3. Define the missing pencil material
+    var pencilMaterial = new BABYLON.StandardMaterial("pencilMat", scene);
+    pencilMaterial.diffuseColor = new BABYLON.Color3(0.9, 0.6, 0.1); // Yellow/Orange pencil body
+
+    // === YOUR ORIGINAL CODE ===
+    // Create a 3D Pencil Group
+    var pencil = new BABYLON.TransformNode("pencil", scene);
+
+    // 1. Hexagonal Main Body
+    var pencilBody = new BABYLON.MeshBuilder.CreateCylinder("pencilBody", {
+        height: 2,
+        diameter: 0.5,
+        tessellation: 6
+    }, scene);
+    pencilBody.material = pencilMaterial;
+    pencilBody.parent = pencil;
+
+    // 2. Cone Tip (a cylinder with diameterTop = 0)
+    var pencilTip = new BABYLON.MeshBuilder.CreateCylinder("pencilTip", {
+        height: 0.6,
+        diameterTop: 0,
+        diameterBottom: 0.5,
+        tessellation: 6
+    }, scene);
+    pencilTip.position.y = 1.3; // Place it on top of the body
+    pencilTip.material = pencilMaterial;
+    pencilTip.parent = pencil;
+
+    // Position the entire pencil in the scene
+    pencil.position.y = 1;
+    pencil.rotation.z = Math.PI / 4; // Angle it slightly so it looks like it's drawing
+    // ==========================
+
+    return scene;
+};
