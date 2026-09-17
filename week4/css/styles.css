@@ -1,45 +1,4 @@
-/* Core Page Layout */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f8f9fa;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-main {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-/* Professional Navigation Bar */
-nav {
-    background-color: #1f2937;
-    padding: 1rem;
-}
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-nav a {
-    color: #9ca3af;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-nav a:hover, nav a.active {
-    color: #ffffff;
-}
-
-/* Call-to-Action Action Buttons */
+/* Call-to-Action Buttons */
 .btn {
     display: inline-block;
     background-color: #2563eb;
@@ -48,8 +7,9 @@ nav a:hover, nav a.active {
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
-    transition: background 0.2s;
+    transition: background-color 0.2s; /* Fixed property here */
 }
+
 .btn:hover {
     background-color: #1d4ed8;
 }
