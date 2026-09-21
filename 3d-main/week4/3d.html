@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>3D Workspace | Scene</title>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
+
+    <style>
+
+        body {
+            overflow: hidden;
+        }
+
+        .scene-container {
+            position: fixed;
+            inset: 72px 0 0 0;
+        }
+
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            outline: none;
+        }
+
+        .scene-panel {
+            position: absolute;
+            top: 95px;
+            left: 25px;
+
+            width: 250px;
+
+            padding: 20px;
+
+            border: 1px solid #202938;
+
+            border-radius: 10px;
+
+            background: rgba(8, 11, 18, 0.85);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .scene-panel h2 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .scene-panel p {
+            color: #8b96a8;
+            font-size: 12px;
+        }
+
+        .scene-info {
+            margin-top: 18px;
+
+            display: grid;
+
+            gap: 8px;
+        }
+
+        .scene-info div {
+            display: flex;
+            justify-content: space-between;
+
+            color: #8b96a8;
+
+            font-size: 12px;
+        }
+
+        .scene-info strong {
+            color: #f4f7fb;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <span class="logo-icon">◆</span>
+            <span>3D Workspace</span>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="3d.html" class="active">
+                3D Scene
+            </a>
+
+
+        </nav>
+
+        <div class="header-status">
+
+            <span class="status-dot"></span>
+
+            Online
+
+        </div>
+
+    </header>
+
+
+    <div class="scene-container">
+
+        <canvas id="renderCanvas"></canvas>
+
+
+        <div class="scene-panel">
+
+            <span class="section-label">
+                LIVE SCENE
+            </span>
+
+            <h2>
+                3D Workspace
+            </h2>
+
+            <p>
+                Interactive Babylon.js environment.
+            </p>
+
+            <div class="scene-info">
+
+                <div>
+                    <span>Engine</span>
+                    <strong>Babylon.js</strong>
+                </div>
+
+                <div>
+                    <span>Object</span>
+                    <strong>Sphere</strong>
+                </div>
+
+                <div>
+                    <span>Ground</span>
+                    <strong>20 × 20</strong>
+                </div>
+
+                <div>
+                    <span>Controls</span>
+                    <strong>Mouse</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Babylon.js -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+
+    <!-- Your JavaScript -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
+```
