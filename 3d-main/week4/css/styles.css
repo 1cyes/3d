@@ -1,11 +1,12 @@
 /* =========================================================
-   3D WORKSPACE
-   Professional Dark UI
+   3D WORKSPACE | SCENE
+   Professional Babylon.js Interface
    ========================================================= */
 
-/* -------------------------
+
+/* =========================================================
    RESET
-   ------------------------- */
+   ========================================================= */
 
 * {
     margin: 0;
@@ -34,6 +35,7 @@ body {
     color: #f4f7fb;
 
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 
@@ -58,7 +60,8 @@ body {
 
     background: rgba(10, 14, 22, 0.94);
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -79,12 +82,12 @@ body {
 
     min-width: 220px;
 
+    color: #f4f7fb;
+
     font-size: 16px;
     font-weight: 650;
 
     letter-spacing: -0.2px;
-
-    color: #f4f7fb;
 }
 
 .logo-icon {
@@ -121,6 +124,7 @@ body {
     position: absolute;
 
     left: 50%;
+
     transform: translateX(-50%);
 
     display: flex;
@@ -150,7 +154,8 @@ body {
 
     transition:
         color 180ms ease,
-        background 180ms ease;
+        background 180ms ease,
+        transform 180ms ease;
 }
 
 .navigation a:hover {
@@ -158,6 +163,8 @@ body {
 
     background:
         rgba(255, 255, 255, 0.05);
+
+    transform: translateY(-1px);
 }
 
 .navigation a.active {
@@ -174,6 +181,7 @@ body {
 
     left: 14px;
     right: 14px;
+
     bottom: 4px;
 
     height: 2px;
@@ -181,6 +189,9 @@ body {
     border-radius: 10px;
 
     background: #5b8cff;
+
+    box-shadow:
+        0 0 8px rgba(91, 140, 255, 0.6);
 }
 
 
@@ -215,7 +226,8 @@ body {
         0 0 0 3px rgba(74, 222, 128, 0.08),
         0 0 12px rgba(74, 222, 128, 0.55);
 
-    animation: statusPulse 2.5s infinite ease-in-out;
+    animation:
+        statusPulse 2.5s infinite ease-in-out;
 }
 
 @keyframes statusPulse {
@@ -241,7 +253,13 @@ body {
 
     overflow: hidden;
 
-    background: #080b12;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(38, 57, 95, 0.14),
+            transparent 42%
+        ),
+        #080b12;
 }
 
 
@@ -262,6 +280,8 @@ body {
     outline: none;
 
     cursor: grab;
+
+    z-index: 0;
 }
 
 #renderCanvas:active {
@@ -270,7 +290,7 @@ body {
 
 
 /* =========================================================
-   SCENE OVERLAY
+   SCENE LIGHTING OVERLAY
    ========================================================= */
 
 .scene-container::before {
@@ -286,9 +306,10 @@ body {
 
     background:
         radial-gradient(
-            circle at center,
-            transparent 35%,
-            rgba(0, 0, 0, 0.32) 100%
+            circle at 50% 45%,
+            transparent 20%,
+            rgba(0, 0, 0, 0.18) 55%,
+            rgba(0, 0, 0, 0.42) 100%
         );
 }
 
@@ -310,8 +331,8 @@ body {
     background:
         linear-gradient(
             145deg,
-            rgba(16, 22, 34, 0.94),
-            rgba(9, 13, 21, 0.91)
+            rgba(16, 22, 34, 0.95),
+            rgba(9, 13, 21, 0.93)
         );
 
     border:
@@ -327,6 +348,21 @@ body {
     -webkit-backdrop-filter: blur(18px);
 
     z-index: 10;
+
+    transition:
+        transform 200ms ease,
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+}
+
+.scene-panel:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.43);
 }
 
 
@@ -358,6 +394,9 @@ body {
     font-weight: 700;
 
     letter-spacing: 1.1px;
+
+    box-shadow:
+        inset 0 0 10px rgba(91, 140, 255, 0.03);
 }
 
 
@@ -380,6 +419,7 @@ body {
     color: #8995a8;
 
     font-size: 11px;
+
     line-height: 1.6;
 }
 
@@ -389,16 +429,16 @@ body {
    ========================================================= */
 
 .scene-info {
+    display: grid;
+
+    gap: 11px;
+
     margin-top: 18px;
 
     padding-top: 15px;
 
     border-top:
         1px solid rgba(255, 255, 255, 0.07);
-
-    display: grid;
-
-    gap: 11px;
 }
 
 .scene-info div {
@@ -425,29 +465,50 @@ body {
 
 
 /* =========================================================
-   PANEL HOVER EFFECT
+   STATUS INDICATOR IN PANEL
    ========================================================= */
 
-.scene-panel {
-    transition:
-        transform 200ms ease,
-        border-color 200ms ease,
-        box-shadow 200ms ease;
+.scene-info div:last-child strong {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
 }
 
-.scene-panel:hover {
-    transform: translateY(-1px);
+.scene-info div:last-child strong::before {
+    content: "";
 
-    border-color:
-        rgba(255, 255, 255, 0.13);
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #4ade80;
 
     box-shadow:
-        0 22px 55px rgba(0, 0, 0, 0.42);
+        0 0 7px rgba(74, 222, 128, 0.7);
 }
 
 
 /* =========================================================
-   RESPONSIVE DESIGN
+   ACCESSIBILITY
+   ========================================================= */
+
+.navigation a:focus-visible {
+    outline: 2px solid #5b8cff;
+
+    outline-offset: 3px;
+}
+
+#renderCanvas:focus-visible {
+    outline: 2px solid #5b8cff;
+
+    outline-offset: -2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
    ========================================================= */
 
 @media (max-width: 800px) {
@@ -474,6 +535,7 @@ body {
 
     .scene-panel {
         width: 250px;
+
         left: 18px;
     }
 }
@@ -503,9 +565,9 @@ body {
     }
 
     .navigation a {
-        font-size: 10px;
-
         padding: 0 7px;
+
+        font-size: 10px;
     }
 
     .header-status {
@@ -535,27 +597,11 @@ body {
     }
 
     .scene-panel {
-        width: calc(100% - 24px);
-
-        left: 12px;
         top: 12px;
+        left: 12px;
+
+        width: calc(100% - 24px);
     }
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-.navigation a:focus-visible {
-    outline: 2px solid #5b8cff;
-
-    outline-offset: 2px;
-}
-
-#renderCanvas:focus-visible {
-    outline: 2px solid #5b8cff;
-    outline-offset: -2px;
 }
 
 
@@ -569,7 +615,9 @@ body {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
     }
 }
