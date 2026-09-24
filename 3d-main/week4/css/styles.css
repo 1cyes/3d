@@ -1,63 +1,774 @@
-/* ==========================================================================
-   VARIABLES & THEME SYSTEM
-   ========================================================================== */
+/* =========================================================
+   3D WORKSPACE | PROFESSIONAL UI
+   ========================================================= */
+
+/* -------------------------
+   RESET
+   ------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background: #0a0e17;
+    color: #e8edf7;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
 :root {
-    /* Colors */
-    --color-status-online: #4ade80;
-    --shadow-status-online: 0 0 8px var(--color-status-online);
+    --background: #0a0e17;
+    --surface: #101622;
+    --surface-2: #151d2b;
+    --surface-3: #1b2535;
 
-    /* Layout Dimensions */
-    --sidebar-width-md: 200px;
-    --properties-width-md: 210px;
-    --spacing-sm: 16px;
-    --spacing-md: 20px;
-    --spacing-lg: 40px;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.13);
 
-    /* Typography */
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
+    --text-primary: #f1f5fb;
+    --text-secondary: #9aa7bb;
+    --text-muted: #68758a;
+
+    --accent: #5b8cff;
+    --accent-hover: #709bff;
+    --accent-dark: #3d6fe0;
+
+    --success: #4ade80;
+    --danger: #f87171;
+    --warning: #fbbf24;
+
+    --radius-sm: 6px;
+    --radius-md: 9px;
+    --radius-lg: 14px;
+
+    --shadow-sm:
+        0 2px 8px rgba(0, 0, 0, 0.2);
+
+    --shadow-md:
+        0 8px 30px rgba(0, 0, 0, 0.3);
+
+    --transition:
+        180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ==========================================================================
-   COMPONENTS
-   ========================================================================== */
+
+/* =========================================================
+   APPLICATION LAYOUT
+   ========================================================= */
+
+.app {
+    display: flex;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: var(--background);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 250px;
+    height: 100vh;
+
+    padding: 22px 16px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111824 0%,
+            #0d131e 100%
+        );
+
+    border-right: 1px solid var(--border);
+}
+
+
+/* -------------------------
+   LOGO
+   ------------------------- */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    height: 42px;
+
+    padding: 0 10px;
+    margin-bottom: 30px;
+
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+
+    color: var(--text-primary);
+}
+
+.logo span {
+    margin-left: 4px;
+
+    color: var(--accent);
+}
+
+
+/* -------------------------
+   SIDEBAR SECTIONS
+   ------------------------- */
+
+.sidebar-section {
+    margin-bottom: 28px;
+}
+
+.sidebar h2 {
+    margin: 0 10px 10px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+
+    color: var(--text-muted);
+}
+
+
+/* -------------------------
+   SIDEBAR BUTTONS
+   ------------------------- */
+
+.sidebar button {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 10px 12px;
+    margin-bottom: 4px;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.sidebar button:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border);
+
+    color: var(--text-primary);
+}
+
+.sidebar button:active {
+    transform: scale(0.98);
+}
+
+.sidebar button.active {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(91, 140, 255, 0.16),
+            rgba(91, 140, 255, 0.05)
+        );
+
+    border-color: rgba(91, 140, 255, 0.2);
+
+    color: #dbe7ff;
+}
+
+
+/* =========================================================
+   MAIN AREA
+   ========================================================= */
+
+.main {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+    min-width: 0;
+    height: 100vh;
+}
+
+
+/* =========================================================
+   TOP NAVIGATION
+   ========================================================= */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 64px;
+
+    padding: 0 22px;
+
+    background: rgba(16, 22, 34, 0.96);
+
+    border-bottom: 1px solid var(--border);
+
+    z-index: 10;
+}
+
+.topbar h1 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+
+    color: var(--text-primary);
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* -------------------------
+   TOPBAR BUTTONS
+   ------------------------- */
+
+.topbar button {
+    height: 34px;
+
+    padding: 0 13px;
+
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: var(--text-secondary);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all var(--transition);
+}
+
+.topbar button:hover {
+    background: rgba(255, 255, 255, 0.07);
+
+    border-color: rgba(255, 255, 255, 0.16);
+
+    color: var(--text-primary);
+}
+
+.topbar button.primary {
+    background: var(--accent);
+
+    border-color: var(--accent);
+
+    color: white;
+
+    box-shadow:
+        0 4px 12px rgba(91, 140, 255, 0.25);
+}
+
+.topbar button.primary:hover {
+    background: var(--accent-hover);
+
+    border-color: var(--accent-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   3D SCENE
+   ========================================================= */
+
+.scene {
+    position: relative;
+
+    flex: 1;
+
+    overflow: hidden;
+
+    background-color: #080c14;
+
+    /*
+       Professional editor-style grid
+    */
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+}
+
+
+/* -------------------------
+   SCENE VIGNETTE
+   ------------------------- */
+
+.scene::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 35%,
+            rgba(0, 0, 0, 0.35) 100%
+        );
+}
+
+
+/* =========================================================
+   3D OBJECT
+   ========================================================= */
+
+.object {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 180px;
+    height: 180px;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(55deg)
+        rotateZ(45deg);
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b8cff 0%,
+            #7658e8 100%
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.35);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.45),
+        0 0 50px rgba(91, 140, 255, 0.18);
+
+    transition:
+        transform 300ms ease,
+        box-shadow 300ms ease;
+}
+
+.object:hover {
+    transform:
+        translate(-50%, -50%)
+        rotateX(55deg)
+        rotateZ(45deg)
+        scale(1.05);
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.5),
+        0 0 70px rgba(91, 140, 255, 0.25);
+}
+
+
+/* =========================================================
+   PROPERTIES PANEL
+   ========================================================= */
+
+.properties {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    width: 270px;
+
+    padding: 18px;
+
+    background:
+        rgba(15, 21, 32, 0.92);
+
+    border:
+        1px solid var(--border-light);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        var(--shadow-md);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    z-index: 5;
+}
+
+
+/* -------------------------
+   PANEL HEADER
+   ------------------------- */
+
+.properties h2 {
+    margin-bottom: 18px;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    color: var(--text-primary);
+}
+
+.properties h2::after {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: 14px;
+
+    background: var(--border);
+}
+
+
+/* =========================================================
+   PROPERTY INPUTS
+   ========================================================= */
+
+.property {
+    margin-bottom: 15px;
+}
+
+.property:last-child {
+    margin-bottom: 0;
+}
+
+.property label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: var(--text-muted);
+
+    letter-spacing: 0.2px;
+}
+
+.property input,
+.property select {
+    width: 100%;
+
+    height: 36px;
+
+    padding: 0 10px;
+
+    border:
+        1px solid var(--border-light);
+
+    border-radius: var(--radius-sm);
+
+    outline: none;
+
+    background: rgba(5, 9, 16, 0.7);
+
+    color: var(--text-primary);
+
+    font-family: inherit;
+    font-size: 12px;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.property input:hover,
+.property select:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.property input:focus,
+.property select:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(91, 140, 255, 0.12);
+}
+
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 36px;
+
+    padding: 0 15px;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+
+    background: var(--accent);
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+
+    box-shadow:
+        0 5px 15px rgba(91, 140, 255, 0.22);
+
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-danger {
+    background: transparent;
+
+    border-color:
+        rgba(248, 113, 113, 0.25);
+
+    color: var(--danger);
+}
+
+.btn-danger:hover {
+    background:
+        rgba(248, 113, 113, 0.1);
+
+    border-color:
+        rgba(248, 113, 113, 0.4);
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   STATUS BAR
+   ========================================================= */
+
+.statusbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 34px;
+
+    padding: 0 15px;
+
+    background: #0d131e;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    z-index: 10;
+}
+
+
+/* -------------------------
+   ONLINE STATUS
+   ------------------------- */
+
+.status-online {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
 .status-online::before {
-    content: ""; /* Required for pseudo-elements to render */
-    display: inline-block;
-    width: 8px;
-    height: 8px;
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
     border-radius: 50%;
-    background-color: var(--color-status-online);
-    box-shadow: var(--shadow-status-online);
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 8px rgba(74, 222, 128, 0.6);
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (MOBILE-FIRST APPROACH)
-   ========================================================================== */
 
-/* Medium Devices: Tablets & Small Laptops */
-@media (max-width: 800px) {
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #293449;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3a4860;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+    background: rgba(91, 140, 255, 0.35);
+    color: white;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 900px) {
+
     .sidebar {
-        width: var(--sidebar-width-md);
+        width: 210px;
     }
 
     .properties {
-        width: var(--properties-width-md);
+        width: 240px;
     }
 }
 
-/* Small Devices: Mobile Phones */
-@media (max-width: 600px) {
+
+@media (max-width: 700px) {
+
     .sidebar {
         display: none;
     }
 
     .properties {
-        right: var(--spacing-md);
-        width: calc(100% - var(--spacing-lg));
+        top: 15px;
+        right: 15px;
+
+        width: 230px;
+    }
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .topbar-actions {
+        gap: 5px;
+    }
+
+    .topbar button {
+        padding: 0 9px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .properties {
+        left: 15px;
+        right: 15px;
+
+        width: auto;
     }
 
     .topbar h1 {
-        font-size: var(--font-size-md);
+        font-size: 13px;
+    }
+
+    .topbar button {
+        font-size: 10px;
     }
 }
