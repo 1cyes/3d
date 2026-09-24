@@ -1,25 +1,16 @@
-/* ------------------------------
-   CS110 Technology Field Guide
-   Professorial / Academic Style
---------------------------------- */
-
-:root {
-    --navy: #172a46;
-    --navy-dark: #0e1b2d;
-    --cream: #f7f4ed;
-    --paper: #fffdf8;
-    --gold: #b08a3e;
-    --text: #29313d;
-    --muted: #697382;
-    --border: #d9d5cc;
-}
+/* =========================================================
+   CS110 TECHNOLOGY FIELD GUIDE
+   3D WORKSPACE STYLE
+   ========================================================= */
 
 
-/* ------------------------------
-   Global Styles
---------------------------------- */
+/* =========================================================
+   RESET
+   ========================================================= */
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -28,262 +19,546 @@ html {
 }
 
 body {
-    margin: 0;
-    background: var(--cream);
-    color: var(--text);
-    font-family: Georgia, "Times New Roman", serif;
-    line-height: 1.7;
+    font-family:
+        Arial,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        sans-serif;
+
+    background: #0d1117;
+
+    color: #f4f7fb;
+
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
 }
+
+
+/* =========================================================
+   PAGE SHELL
+   ========================================================= */
 
 .page-shell {
-    max-width: 1180px;
-    margin: 0 auto;
     min-height: 100vh;
-    background: var(--paper);
-    box-shadow: 0 0 40px rgba(20, 30, 45, 0.08);
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(91, 140, 255, 0.08),
+            transparent 35%
+        );
 }
 
 
-/* ------------------------------
-   Header
---------------------------------- */
+/* =========================================================
+   TOP BAR
+   ========================================================= */
 
 .topbar {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    min-height: 72px;
+
+    padding: 0 40px;
+
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
-    padding: 28px 60px;
-    background: var(--navy);
-    color: white;
-    border-bottom: 4px solid var(--gold);
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    background:
+        rgba(10, 14, 22, 0.95);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
 }
 
-.course-mark {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-}
 
-.course-mark span {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-}
+/* =========================================================
+   EYEBROW
+   ========================================================= */
 
-.course-mark small {
-    margin-top: 5px;
-    color: #d7dde6;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
+.eyebrow {
+    color: #8f9bad;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
     text-transform: uppercase;
+
+    white-space: nowrap;
 }
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 .topnav {
     display: flex;
-    gap: 30px;
+
+    align-items: center;
+
+    gap: 5px;
 }
 
 .topnav a {
-    color: #eef1f5;
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 9px 13px;
+
+    border-radius: 6px;
+
+    color: #8995a8;
+
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.78rem;
+
+    font-size: 12px;
+
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 .topnav a:hover {
-    color: #d8b96b;
+    color: #ffffff;
+
+    background:
+        rgba(91, 140, 255, 0.10);
+
+    transform: translateY(-1px);
 }
 
 
-/* ------------------------------
-   Hero
---------------------------------- */
+/* Home button */
+
+.topnav a:last-child {
+    margin-left: 8px;
+
+    color: #ffffff;
+
+    background: #182233;
+
+    border: 1px solid #2b374a;
+}
+
+.topnav a:last-child:hover {
+    background: #25334a;
+
+    border-color: #5b8cff;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
 
 .hero {
-    padding: 90px 100px 70px;
-    background: linear-gradient(
-        to bottom,
-        rgba(247, 244, 237, 0.92),
-        rgba(255, 253, 248, 1)
-    );
+    width: min(1050px, calc(100% - 50px));
+
+    margin: 0 auto;
+
+    padding: 70px 0 80px;
 }
 
-.eyebrow,
+
+/* =========================================================
+   INTRO PANEL
+   ========================================================= */
+
+.intro-panel {
+    padding: 40px;
+
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 24, 39, 0.98),
+            rgba(13, 18, 28, 0.98)
+        );
+
+    border:
+        1px solid #273244;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
 .label {
-    margin: 0 0 10px;
-    color: var(--gold);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.75rem;
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #5b8cff;
+
+    font-size: 11px;
+
     font-weight: 700;
-    letter-spacing: 0.16em;
+
+    letter-spacing: 1px;
+
     text-transform: uppercase;
 }
 
-.hero h1 {
-    margin: 0;
-    color: var(--navy);
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    font-weight: 400;
-    letter-spacing: -0.04em;
+
+/* =========================================================
+   MAIN TITLE
+   ========================================================= */
+
+.intro-panel h1 {
+    margin-bottom: 5px;
+
+    font-size: clamp(42px, 7vw, 64px);
+
     line-height: 1;
+
+    letter-spacing: -2px;
+
+    color: #ffffff;
 }
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
 
 .subtitle {
-    max-width: 650px;
-    margin: 22px 0 28px;
-    color: #4e5968;
-    font-size: 1.35rem;
+    margin-bottom: 22px;
+
+    color: #7fa5ff;
+
+    font-size: 17px;
+
+    font-weight: 500;
 }
 
-.hero-rule {
-    width: 80px;
-    height: 3px;
-    margin: 30px 0;
-    background: var(--gold);
-}
+.intro-panel > p:last-child {
+    max-width: 780px;
 
-.intro {
-    max-width: 720px;
-    margin: 0;
-    color: var(--muted);
-    font-size: 1.05rem;
+    color: #9ca8b8;
+
+    font-size: 15px;
+
+    line-height: 1.8;
 }
 
 
-/* ------------------------------
-   Course Sections
---------------------------------- */
+/* =========================================================
+   WEEK PANELS
+   ========================================================= */
 
-.course-section {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 35px;
-    margin: 0 100px;
-    padding: 65px 0;
-    border-top: 1px solid var(--border);
-}
-
-.week-number {
-    color: #d7d2c7;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 3.2rem;
-    font-weight: 400;
-    line-height: 1;
-}
-
-.section-content {
-    max-width: 720px;
-}
-
-.section-content h2 {
-    margin: 0 0 18px;
-    color: var(--navy);
-    font-size: 2.25rem;
-    font-weight: 400;
-    line-height: 1.15;
-}
-
-.section-intro {
-    margin: 0 0 24px;
-    color: var(--muted);
-    font-size: 1.05rem;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-li {
+.video-panel {
     position: relative;
-    margin: 12px 0;
-    padding-left: 24px;
-    color: var(--text);
+
+    margin-bottom: 20px;
+
+    padding: 30px;
+
+    background: #111827;
+
+    border:
+        1px solid #273244;
+
+    border-radius: 10px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-li::before {
-    content: "—";
+
+/* Blue line on left */
+
+.video-panel::before {
+    content: "";
+
     position: absolute;
+
+    top: 25px;
+    bottom: 25px;
     left: 0;
-    color: var(--gold);
-    font-weight: bold;
+
+    width: 3px;
+
+    border-radius: 0 4px 4px 0;
+
+    background: #5b8cff;
+
+    opacity: 0.8;
 }
 
 
-/* ------------------------------
-   Footer
---------------------------------- */
+/* Hover */
 
-footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    padding: 35px 60px;
-    background: var(--navy-dark);
-    color: #bfc7d3;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.video-panel:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(91, 140, 255, 0.45);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 
-/* ------------------------------
-   Responsive Design
---------------------------------- */
+/* =========================================================
+   WEEK CONTENT
+   ========================================================= */
 
-@media (max-width: 760px) {
+.video-copy {
+    max-width: 900px;
+}
+
+.video-copy h2 {
+    margin-bottom: 12px;
+
+    color: #f4f7fb;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.4px;
+}
+
+.video-copy > p:not(.label) {
+    margin-bottom: 20px;
+
+    color: #9ca8b8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   LIST
+   ========================================================= */
+
+.video-copy ul {
+    padding-left: 20px;
+
+    display: grid;
+
+    gap: 10px;
+}
+
+.video-copy li {
+    padding-left: 5px;
+
+    color: #b7c0ce;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.video-copy li::marker {
+    color: #5b8cff;
+}
+
+
+/* =========================================================
+   WEEK LABEL COLORS
+   ========================================================= */
+
+#week-1 .label,
+#week-2 .label,
+#week-3 .label,
+#week-4 .label {
+    color: #7fa5ff;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 25px 40px;
+
+    border-top:
+        1px solid #273244;
+
+    color: #6f7c90;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    background: #0b0f16;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
 
     .topbar {
+        padding: 15px 25px;
+
         flex-direction: column;
+
         align-items: flex-start;
-        gap: 22px;
-        padding: 25px 30px;
+
+        gap: 12px;
     }
 
     .topnav {
         width: 100%;
-        flex-wrap: wrap;
-        gap: 15px 22px;
+
+        overflow-x: auto;
+
+        padding-bottom: 3px;
+    }
+
+    .topnav a {
+        white-space: nowrap;
     }
 
     .hero {
-        padding: 65px 30px 50px;
+        width: calc(100% - 30px);
+
+        padding-top: 45px;
     }
 
-    .hero h1 {
-        font-size: 3.5rem;
+    .intro-panel {
+        padding: 30px;
+    }
+
+    .video-panel {
+        padding: 25px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .topbar {
+        min-height: auto;
+
+        padding: 15px;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+    }
+
+    .topnav {
+        gap: 2px;
+    }
+
+    .topnav a {
+        padding: 8px 9px;
+
+        font-size: 10px;
+    }
+
+    .topnav a:last-child {
+        margin-left: 3px;
+    }
+
+    .hero {
+        width: calc(100% - 24px);
+
+        padding: 30px 0 50px;
+    }
+
+    .intro-panel {
+        padding: 25px;
+    }
+
+    .intro-panel h1 {
+        font-size: 42px;
     }
 
     .subtitle {
-        font-size: 1.15rem;
+        font-size: 15px;
     }
 
-    .course-section {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin: 0 30px;
-        padding: 50px 0;
+    .intro-panel > p:last-child {
+        font-size: 13px;
     }
 
-    .week-number {
-        font-size: 2rem;
+    .video-panel {
+        padding: 22px;
     }
 
-    .section-content h2 {
-        font-size: 1.9rem;
+    .video-copy h2 {
+        font-size: 21px;
     }
 
-    footer {
-        flex-direction: column;
-        gap: 5px;
-        padding: 30px;
+    .video-copy li {
+        font-size: 12px;
+    }
+
+    .footer {
+        padding: 20px 15px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.topnav a:focus-visible {
+    outline: 2px solid #5b8cff;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+
+        animation: none !important;
+
+        scroll-behavior: auto !important;
     }
 }
