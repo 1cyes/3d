@@ -650,7 +650,7 @@ footer {
    RESPONSIVE
 ================================================== */
 
-@media (max-width: 850px) {}
+@media (max-width: 850px) {
 
     .header {
         padding: 0 25px;
@@ -690,6 +690,8 @@ footer {
 
         gap: 10px;
     }
+}
+
 /* ------------------------------
    CS110 Technology Field Guide
    Professorial / Academic Style
