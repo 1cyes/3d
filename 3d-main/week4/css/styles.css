@@ -1,12 +1,6 @@
-/* =========================================================
-   3D WORKSPACE | SCENE
-   Professional Babylon.js Interface
-   ========================================================= */
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
+/* ================================
+   BASIC RESET
+================================ */
 
 * {
     margin: 0;
@@ -14,610 +8,574 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    overflow: hidden;
-
-    font-family:
-        Inter,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    background: #080b12;
-    color: #f4f7fb;
-
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    font-family: Arial, sans-serif;
+    background: #0d1117;
+    color: #ffffff;
+    line-height: 1.6;
 }
 
 
-/* =========================================================
+/* ================================
    HEADER
-   ========================================================= */
+================================ */
 
 .header {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    right: 0;
-
-    height: 72px;
-
-    padding: 0 28px;
+    height: 70px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    background: rgba(10, 14, 22, 0.94);
+    padding: 0 40px;
 
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+    background: #111827;
 
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid #273244;
 
-    z-index: 1000;
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
 }
 
 
-/* =========================================================
-   LOGO
-   ========================================================= */
+/* Logo */
 
 .logo {
     display: flex;
     align-items: center;
 
-    gap: 11px;
+    gap: 10px;
 
-    min-width: 220px;
-
-    color: #f4f7fb;
-
-    font-size: 16px;
-    font-weight: 650;
-
-    letter-spacing: -0.2px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 30px;
-    height: 30px;
-
-    border-radius: 8px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #5b8cff,
-            #7a5cff
-        );
-
-    color: white;
-
-    font-size: 13px;
-
-    box-shadow:
-        0 5px 18px rgba(91, 140, 255, 0.28);
+    color: #5b8cff;
+    font-size: 20px;
 }
 
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* Navigation */
 
 .navigation {
-    position: absolute;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
     display: flex;
-    align-items: center;
-
-    gap: 5px;
+    gap: 25px;
 }
 
 .navigation a {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    height: 38px;
-
-    padding: 0 14px;
-
-    border-radius: 7px;
-
-    color: #8995a8;
+    color: #9ca8b8;
 
     text-decoration: none;
 
-    font-size: 12px;
-    font-weight: 550;
+    font-size: 14px;
 
-    transition:
-        color 180ms ease,
-        background 180ms ease,
-        transform 180ms ease;
+    transition: color 0.2s ease;
 }
 
-.navigation a:hover {
-    color: #f4f7fb;
-
-    background:
-        rgba(255, 255, 255, 0.05);
-
-    transform: translateY(-1px);
-}
-
+.navigation a:hover,
 .navigation a.active {
     color: #ffffff;
-
-    background:
-        rgba(91, 140, 255, 0.12);
-}
-
-.navigation a.active::after {
-    content: "";
-
-    position: absolute;
-
-    left: 14px;
-    right: 14px;
-
-    bottom: 4px;
-
-    height: 2px;
-
-    border-radius: 10px;
-
-    background: #5b8cff;
-
-    box-shadow:
-        0 0 8px rgba(91, 140, 255, 0.6);
 }
 
 
-/* =========================================================
-   HEADER STATUS
-   ========================================================= */
+/* Online status */
 
 .header-status {
-    min-width: 220px;
-
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 
     gap: 8px;
 
-    color: #8f9bad;
+    color: #9ca8b8;
 
-    font-size: 11px;
-    font-weight: 500;
+    font-size: 13px;
 }
 
 .status-dot {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
 
     border-radius: 50%;
 
     background: #4ade80;
-
-    box-shadow:
-        0 0 0 3px rgba(74, 222, 128, 0.08),
-        0 0 12px rgba(74, 222, 128, 0.55);
-
-    animation:
-        statusPulse 2.5s infinite ease-in-out;
-}
-
-@keyframes statusPulse {
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.55;
-    }
 }
 
 
-/* =========================================================
-   SCENE CONTAINER
-   ========================================================= */
+/* ================================
+   HERO
+================================ */
 
-.scene-container {
-    position: fixed;
+.hero {
+    max-width: 1100px;
 
-    inset: 72px 0 0 0;
+    margin: auto;
+
+    padding: 100px 40px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+
+/* Hero text */
+
+.eyebrow {
+    color: #5b8cff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+}
+
+.eyebrow span {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #5b8cff;
+}
+
+.hero h1 {
+    font-size: 52px;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #5b8cff;
+}
+
+.hero p {
+    max-width: 520px;
+
+    color: #9ca8b8;
+
+    font-size: 16px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.button.primary {
+    background: #5b8cff;
+
+    color: white;
+}
+
+.button.primary:hover {
+    background: #4778e8;
+}
+
+.button.secondary {
+    background: #182233;
+
+    color: #ffffff;
+
+    border: 1px solid #2b374a;
+}
+
+.button.secondary:hover {
+    background: #202c40;
+}
+
+
+/* ================================
+   3D PREVIEW
+================================ */
+
+.hero-preview {
+    height: 360px;
+
+    border: 1px solid #293548;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background: #080c13;
+}
+
+
+/* Preview header */
+
+.preview-header {
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    background: #111827;
+
+    border-bottom: 1px solid #293548;
+}
+
+.window-dot {
+    display: inline-block;
+
+    width: 8px;
+    height: 8px;
+
+    margin-right: 5px;
+
+    border-radius: 50%;
+
+    background: #596579;
+}
+
+.preview-title {
+    color: #7d899b;
+
+    font-size: 12px;
+}
+
+
+/* Preview content */
+
+.preview-content {
+    position: relative;
+
+    width: 100%;
+    height: calc(100% - 45px);
 
     overflow: hidden;
 
     background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(38, 57, 95, 0.14),
-            transparent 42%
-        ),
-        #080b12;
-}
-
-
-/* =========================================================
-   BABYLON CANVAS
-   ========================================================= */
-
-#renderCanvas {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    outline: none;
-
-    cursor: grab;
-
-    z-index: 0;
-}
-
-#renderCanvas:active {
-    cursor: grabbing;
-}
-
-
-/* =========================================================
-   SCENE LIGHTING OVERLAY
-   ========================================================= */
-
-.scene-container::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 1;
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            transparent 20%,
-            rgba(0, 0, 0, 0.18) 55%,
-            rgba(0, 0, 0, 0.42) 100%
-        );
-}
-
-
-/* =========================================================
-   SCENE PANEL
-   ========================================================= */
-
-.scene-panel {
-    position: absolute;
-
-    top: 24px;
-    left: 25px;
-
-    width: 270px;
-
-    padding: 20px;
-
-    background:
         linear-gradient(
-            145deg,
-            rgba(16, 22, 34, 0.95),
-            rgba(9, 13, 21, 0.93)
+            rgba(91, 140, 255, 0.05) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(91, 140, 255, 0.05) 1px,
+            transparent 1px
         );
 
-    border:
-        1px solid rgba(255, 255, 255, 0.09);
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.35),
-        0 2px 8px rgba(0, 0, 0, 0.25);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    z-index: 10;
-
-    transition:
-        transform 200ms ease,
-        border-color 200ms ease,
-        box-shadow 200ms ease;
-}
-
-.scene-panel:hover {
-    transform: translateY(-2px);
-
-    border-color:
-        rgba(255, 255, 255, 0.14);
-
-    box-shadow:
-        0 24px 55px rgba(0, 0, 0, 0.43);
+    background-size: 35px 35px;
 }
 
 
-/* =========================================================
-   SECTION LABEL
-   ========================================================= */
+/* ================================
+   SIMPLE 3D CUBE
+================================ */
+
+.cube {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 100px;
+    height: 100px;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(55deg)
+        rotateZ(45deg);
+
+    background: #5b8cff;
+
+    border-radius: 8px;
+
+    box-shadow:
+        20px 20px 0 #365db5,
+        0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cube-face {
+    display: none;
+}
+
+
+/* ================================
+   FEATURES
+================================ */
+
+.features {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 80px 40px;
+}
+
+.section-heading {
+    max-width: 600px;
+
+    margin-bottom: 40px;
+}
 
 .section-label {
-    display: inline-flex;
-    align-items: center;
-
-    height: 22px;
-
-    padding: 0 8px;
+    display: inline-block;
 
     margin-bottom: 10px;
 
-    border:
-        1px solid rgba(91, 140, 255, 0.2);
+    color: #5b8cff;
 
-    border-radius: 5px;
+    font-size: 12px;
 
-    background:
-        rgba(91, 140, 255, 0.08);
+    font-weight: bold;
 
-    color: #7fa5ff;
+    letter-spacing: 1px;
+}
 
-    font-size: 9px;
-    font-weight: 700;
+.section-heading h2 {
+    font-size: 32px;
 
-    letter-spacing: 1.1px;
+    margin-bottom: 12px;
+}
 
-    box-shadow:
-        inset 0 0 10px rgba(91, 140, 255, 0.03);
+.section-heading p {
+    color: #9ca8b8;
 }
 
 
-/* =========================================================
-   PANEL TITLE
-   ========================================================= */
+/* ================================
+   FEATURE CARDS
+================================ */
 
-.scene-panel h2 {
-    margin-bottom: 7px;
-
-    color: #f4f7fb;
-
-    font-size: 17px;
-    font-weight: 650;
-
-    letter-spacing: -0.3px;
-}
-
-.scene-panel p {
-    color: #8995a8;
-
-    font-size: 11px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   SCENE INFORMATION
-   ========================================================= */
-
-.scene-info {
+.feature-grid {
     display: grid;
 
-    gap: 11px;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    margin-top: 18px;
-
-    padding-top: 15px;
-
-    border-top:
-        1px solid rgba(255, 255, 255, 0.07);
+    gap: 20px;
 }
 
-.scene-info div {
+.feature-card {
+    padding: 25px;
+
+    background: #111827;
+
+    border: 1px solid #273244;
+
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #5b8cff;
+}
+
+.feature-icon {
+    color: #5b8cff;
+
+    font-size: 25px;
+
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+.feature-card p {
+    color: #9ca8b8;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.feature-card a {
+    color: #5b8cff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.feature-card a:hover {
+    color: #7da4ff;
+}
+
+
+/* ================================
+   CTA
+================================ */
+
+.cta {
+    max-width: 1100px;
+
+    margin: 40px auto 80px;
+
+    padding: 35px 40px;
+
     display: flex;
 
     align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    background: #111827;
+
+    border: 1px solid #273244;
+
+    border-radius: 10px;
+}
+
+.cta h2 {
+    font-size: 24px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    padding: 25px 40px;
+
+    display: flex;
+
     justify-content: space-between;
 
     gap: 20px;
 
-    color: #778499;
+    border-top: 1px solid #273244;
 
-    font-size: 11px;
-}
+    color: #6f7c90;
 
-.scene-info strong {
-    color: #dce3ed;
-
-    font-size: 11px;
-    font-weight: 600;
-
-    text-align: right;
+    font-size: 12px;
 }
 
 
-/* =========================================================
-   STATUS INDICATOR IN PANEL
-   ========================================================= */
-
-.scene-info div:last-child strong {
-    display: inline-flex;
-    align-items: center;
-
-    gap: 6px;
-}
-
-.scene-info div:last-child strong::before {
-    content: "";
-
-    width: 5px;
-    height: 5px;
-
-    border-radius: 50%;
-
-    background: #4ade80;
-
-    box-shadow:
-        0 0 7px rgba(74, 222, 128, 0.7);
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-.navigation a:focus-visible {
-    outline: 2px solid #5b8cff;
-
-    outline-offset: 3px;
-}
-
-#renderCanvas:focus-visible {
-    outline: 2px solid #5b8cff;
-
-    outline-offset: -2px;
-}
-
-
-/* =========================================================
+/* ================================
    RESPONSIVE
-   ========================================================= */
+================================ */
 
 @media (max-width: 800px) {
 
     .header {
-        padding: 0 18px;
+        padding: 0 20px;
     }
+
+    .header-status {
+        display: none;
+    }
+
+    .navigation {
+        gap: 12px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding: 70px 25px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        padding: 60px 25px;
+    }
+
+    .cta {
+        margin: 30px 25px 60px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    footer {
+        padding: 25px;
+
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 500px) {
 
     .logo {
-        min-width: auto;
-    }
-
-    .navigation {
-        gap: 2px;
+        font-size: 15px;
     }
 
     .navigation a {
-        padding: 0 9px;
+        font-size: 11px;
     }
 
-    .header-status {
-        min-width: auto;
-    }
-
-    .scene-panel {
-        width: 250px;
-
-        left: 18px;
-    }
-}
-
-
-@media (max-width: 620px) {
-
-    .header {
-        height: 64px;
-    }
-
-    .scene-container {
-        inset: 64px 0 0 0;
-    }
-
-    .logo span:last-child {
+    .navigation a:last-child {
         display: none;
     }
 
-    .navigation {
-        position: static;
-
-        transform: none;
-
-        margin-left: auto;
-        margin-right: 12px;
+    .hero h1 {
+        font-size: 36px;
     }
 
-    .navigation a {
-        padding: 0 7px;
-
-        font-size: 10px;
-    }
-
-    .header-status {
-        display: none;
-    }
-
-    .scene-panel {
-        top: 15px;
-        left: 15px;
-
-        width: calc(100% - 30px);
-
-        padding: 17px;
-    }
-}
-
-
-@media (max-width: 400px) {
-
-    .navigation a {
-        padding: 0 5px;
-    }
-
-    .navigation a.active::after {
-        left: 7px;
-        right: 7px;
-    }
-
-    .scene-panel {
-        top: 12px;
-        left: 12px;
-
-        width: calc(100% - 24px);
-    }
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: 0.01ms !important;
+    .hero-preview {
+        height: 300px;
     }
 }
